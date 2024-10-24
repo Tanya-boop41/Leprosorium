@@ -42,7 +42,7 @@ get '/' do
 end
 
 get '/posts' do
-	erb :index
+	'Hello'
 end
 
 # обработчик post - запроса /new
@@ -67,5 +67,7 @@ post '/new' do
  	#сохранение данных БД
  	@db.execute 'insert into Posts (content, created_date) values (?, datetime())', [content]
 
- 	erb "You typed: #{content}"
+ 	#перенаправление на главную страницу
+ 	redirect to '/'
+ 	
 end
